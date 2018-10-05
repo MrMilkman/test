@@ -7,21 +7,17 @@ console.log(time);
 let appData = {
     Bank: money,
     timeData: time,
-    expenses: {
-        "ответ на первый вопрос" : "ответ на второй вопрос"
-    },
+    expenses: {},
     optionalExpenses: {},
-    income: {},
+    income: [],
     savings: false
 };
-appData.expenses.ff = prompt("Введите обязательную статью расходов в этом месяце",'');
-console.log(appData.expenses.ff);
-appData.expenses.fs = +prompt("Во сколько обойдется?",'');
-console.log(appData.expenses.fs);
-appData.expenses.sf = prompt("Введите обязательную статью расходов в этом месяце",'');
-console.log(appData.expenses.sf);
-appData.expenses.ss = +prompt("Во сколько обойдется?",'');
-console.log(appData.expenses.ss);
-let Budjet;
-Budjet = (money-(appData.expenses.fs+appData.expenses.ss))/30;
-alert(Budjet);
+let ff = prompt("Введите обязательную статью расходов в этом месяце",''),
+    fs = +prompt("Во сколько обойдется?",''),
+    sf = prompt("Введите обязательную статью расходов в этом месяце",''),
+    ss = +prompt("Во сколько обойдется?",'');
+
+appData.expenses.ff = fs;
+appData.expenses.sf = ss;
+
+alert(appData.Bank / 30);
