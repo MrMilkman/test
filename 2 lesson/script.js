@@ -19,13 +19,28 @@ for (let i = 0; i < 2; i++) {
             console.log("done");
             appData.expenses[a] = b;
         } else {
-            alert("Попробуйте еще раз");
-            do {
-                a = prompt("Введите обязательную статью расходов в этом месяце", ''),
-                b = prompt("Во сколько обойдется?", '');
-            } while ( (typeof(a))=== 'string' && (typeof(a)) != null && (typeof(b)) != null && a != '' && b != '' && a.length < 50);
-    }
+            alert("Введите данные снова");
+        let a = prompt("Введите обязательную статью расходов в этом месяце", ''),
+            b = prompt("Во сколько обойдется?", '');
+        }
 }
+
+/*let i = 0;
+do {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ''),
+        b = +prompt("Во сколько обойдется?", '');
+        console.log("done");
+        appData.expenses[a] = b;
+        i++;
+} while ( i < 2 );
+
+let i = 0;
+while ( i < 2 ) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ''),
+        b = +prompt("Во сколько обойдется?", '');
+    console.log("done");
+    i++;
+}; */
 
 appData.moneyPerDay = appData.Bank / 30;
 
