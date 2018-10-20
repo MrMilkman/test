@@ -28,8 +28,10 @@ expensesBtn.disabled = true;
 optionalExpensesBtn.disabled = true;
 countBtn.disabled = true;
 
-let field = [false, false, false, false];
+//let field = [false, false, false, false];
+let field = [];
 for (let i = 0; i < expensesItem.length; i++) {
+    field.push(false);
     expensesItem[i].addEventListener('input', function(){
         if ( expensesItem[i].value.length > 0 ) {
             field[i] = true;
