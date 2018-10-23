@@ -10,7 +10,7 @@ hour = nolik(hour);
 min = nolik(min);
 sec = nolik(sec);
 
-console.log(hour + ":" + min + ":" +sec);
+document.getElementById('timer').textContent = hour + ":" + min + ":" +sec;
 time = setTimeout(Time, 1000);
 }
 
