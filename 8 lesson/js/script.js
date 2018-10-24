@@ -36,10 +36,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Timer
     
-	let deadline = '2018-10-23',
+	let deadline = 'October 25 2018 23:59:59 GMT+03:00',
         persently = Date.parse(new Date()),
-	    end = Date.parse(deadline);
-
+		end = Date.parse(deadline);
+		
 	if ( end <= persently ) {
 	let timer = document.getElementById('timer'),
 		hours = timer.querySelector('.hours'),
@@ -51,15 +51,18 @@ window.addEventListener('DOMContentLoaded', function() {
 		seconds.textContent = "00";
 
 	} else {
+		getTimerRemaining();
+	}
 
 		function getTimerRemaining(endtime) {
 			let t = Date.parse(endtime) - Date.parse(new Date()),
 			    seconds = Math.floor((t/1000) % 60),
 			    minutes = Math.floor((t/1000/60) % 60),
-			    hours = Math.floor((t/(1000*60*60)));
-
+			    hours = Math.floor((t/(1000*60*60)) % 24),
+				days = Math.floor(t/(1000*60*60*24));
 			return {
 				'total': t,
+				'days' : days,
 				'hours': hours,
 				'minutes': minutes,
 				'seconds': seconds
@@ -74,9 +77,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			function updateClock() {
 				let t = getTimerRemaining(endtime);
-				    hours.innerHTML = nolik(t.hours);
-				    minutes.innerHTML = nolik(t.minutes);
-				    seconds.innerHTML = nolik(t.seconds);
+				    hours.textContent = ('0' + t.hours).slice(-2);
+				    minutes.textContent = ('0' + t.minutes).slice(-2);
+				    seconds.textContent = ('0' + t.seconds).slice(-2);
 
 				if (t.total <= 0) {
 					clearInterval(timeInterval);
@@ -87,15 +90,8 @@ window.addEventListener('DOMContentLoaded', function() {
 			updateClock();
 			let timeInterval = setInterval(updateClock, 1000);
 		}
-
-		function nolik(i) {
-			if ( i < 10 ) {	
-				i = "0" + i;
-			}
-			return i;
-		}
 		setClock('timer', deadline);
-	}
+
 });
 
 
