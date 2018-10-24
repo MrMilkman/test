@@ -36,37 +36,38 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Timer
     
-	let deadline = 'October 25 2018 23:59:59 GMT+03:00',
+	let deadline = '2018-10-23',
         persently = Date.parse(new Date()),
 		end = Date.parse(deadline);
-		
-	if ( end <= persently ) {
-	let timer = document.getElementById('timer'),
-		hours = timer.querySelector('.hours'),
-		minutes = timer.querySelector('.minutes'),
-		seconds = timer.querySelector('.seconds');
+	
+	function getTimerRemaining(endtime) {
+			let timezone = new Date();
+				timezone = timezone.getTimezoneOffset()*60*1000;
+			let	t = Date.parse(endtime) - Date.parse(new Date()) + timezone;
+			console.log(t);
+			console.log(timezone);
+			console.log(Date.parse(endtime));
+			console.log(Date.parse(new Date()));
+				if ( t <= 0 ) {
+					return {
+						'total': 0,
+						'hours': 0,
+						'minutes': 0,
+						'seconds': 0
+					};
+				} else {
+					let seconds = Math.floor((t/1000) % 60),
+						minutes = Math.floor((t/1000/60) % 60),
+						hours = Math.floor((t/(1000*60*60)) % 24),
+						days = Math.floor(t/(1000*60*60*24));
+				return {
+					'total': t,
+					'hours': hours,
+					'minutes': minutes,
+					'seconds': seconds
+				};
 
-		hours.textContent = "00";
-		minutes.textContent = "00";
-		seconds.textContent = "00";
-
-	} else {
-		getTimerRemaining();
-	}
-
-		function getTimerRemaining(endtime) {
-			let t = Date.parse(endtime) - Date.parse(new Date()),
-			    seconds = Math.floor((t/1000) % 60),
-			    minutes = Math.floor((t/1000/60) % 60),
-			    hours = Math.floor((t/(1000*60*60)) % 24),
-				days = Math.floor(t/(1000*60*60*24));
-			return {
-				'total': t,
-				'days' : days,
-				'hours': hours,
-				'minutes': minutes,
-				'seconds': seconds
-			};
+			}
 		}
 
 		function setClock(id, endtime) {
@@ -74,6 +75,9 @@ window.addEventListener('DOMContentLoaded', function() {
 				hours = timer.querySelector('.hours'),
 				minutes = timer.querySelector('.minutes'),
 				seconds = timer.querySelector('.seconds');
+
+				let timeInterval = setInterval(updateClock, 1000);
+				updateClock();
 
 			function updateClock() {
 				let t = getTimerRemaining(endtime);
@@ -85,10 +89,6 @@ window.addEventListener('DOMContentLoaded', function() {
 					clearInterval(timeInterval);
 				}
 			}
-
-
-			updateClock();
-			let timeInterval = setInterval(updateClock, 1000);
 		}
 		setClock('timer', deadline);
 
