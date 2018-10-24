@@ -36,9 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Timer
     
-	let deadline = '2018-11-23',
-        persently = Date.parse(new Date()),
-		end = Date.parse(deadline);
+	let deadline = '2018-11-23';
 	
 	function getTimerRemaining(endtime) {
 			let timezone = new Date();

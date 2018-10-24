@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Timer
     
-	let deadline = '2018-10-23',
+	let deadline = '2018-10-29',
         persently = Date.parse(new Date()),
 		end = Date.parse(deadline);
 	
@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 		}
 		setClock('timer', deadline);
-		
+
 	//Modal
 
 	let more = document.querySelector('.more'),
