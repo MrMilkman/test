@@ -36,9 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Timer
     
-	let deadline = '2018-10-29',
-        persently = Date.parse(new Date()),
-		end = Date.parse(deadline);
+	let deadline = '2018-10-23';
 	
 	function getTimerRemaining(endtime) {
 			let timezone = new Date();
@@ -58,8 +56,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				} else {
 					let seconds = Math.floor((t/1000) % 60),
 						minutes = Math.floor((t/1000/60) % 60),
-						hours = Math.floor((t/(1000*60*60)) % 24),
-						days = Math.floor(t/(1000*60*60*24));
+						hours = Math.floor((t/(1000*60*60)) % 24);
 				return {
 					'total': t,
 					'hours': hours,
@@ -111,13 +108,11 @@ window.addEventListener('DOMContentLoaded', function() {
 	});
 
 
-	let btn = document.getElementsByClassName('description-btn')[0],
-		inf = document.getElementsByClassName('info')[0],
-		descriptionBtn = document.getElementsByClassName('description-btn');
+	let inf = document.getElementsByClassName('info')[0];
 
 	inf.addEventListener('click', function(event) {
 			let target = event.target;
-			if(target.className == 'description-btn') {
+			if ( target.className == 'description-btn' ) {
 				
 				let overlay = document.querySelector('.overlay'),
 					close = document.querySelector('.popup-close');
