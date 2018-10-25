@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	let inf = document.getElementsByClassName('info')[0];
 
-	inf.addEventListener('click', function(event) {
+	inf.addEventListener('click', (event) => {
 			let target = event.target;
 			if ( target.className == 'description-btn' ) {
 				
