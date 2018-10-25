@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', () => {
 
     'use strict';
     let tab = document.querySelectorAll('.info-header-tab'),
@@ -14,14 +14,14 @@ window.addEventListener('DOMContentLoaded', function() {
 
     hideTabContent(1);
 
-    function showTabContent(b) {
+    let showTabContent = (b) => {
         if (tabContent[b].classList.contains('hide')) {
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
         }
-    }
+    };
 
-    info.addEventListener('click', function(event) {
+    info.addEventListener('click', (event) => {
         let target = event.target;
         if (target && target.classList.contains('info-header-tab')) {
             for(let i = 0; i < tab.length; i++) {
@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		document.body.style.overflow = 'hidden';
 	});
 
-	close.addEventListener('click', function() {
+	close.addEventListener('click', () => {
 		overlay.style.display = 'none';
 		more.classList.add('remove-splash');
 		document.body.style.overflow = '';
