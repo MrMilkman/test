@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		overlay = document.querySelector('.overlay'),
 		close = document.querySelector('.popup-close');
 	
-	more.addEventListener('click', function() {
+	more.addEventListener('click', () => {
 		overlay.style.display = 'block';
 		this.classList.add('more-splash');
 		document.body.style.overflow = 'hidden';
@@ -121,7 +121,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				overlay.style.display = "block";
 				document.body.style.overflow = 'hidden';
 			
-				close.addEventListener('click', function() {
+				close.addEventListener('click', () => {
 					overlay.style.display = "none";
 					more.classList.remove('more-splash');
 					document.body.style.overflow = '';
