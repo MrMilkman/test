@@ -36,9 +36,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Timer
     
-	let deadline = '2018-10-23';
+	let deadline = '2018-11-23';
 	
-	function getTimerRemaining(endtime) {
+	let getTimerRemaining = (endtime) => {
 			let timezone = new Date();
 				timezone = timezone.getTimezoneOffset()*60*1000;
 			let	t = Date.parse(endtime) - Date.parse(new Date()) + timezone;
@@ -65,9 +65,9 @@ window.addEventListener('DOMContentLoaded', function() {
 				};
 
 			}
-		}
+		};
 
-		function setClock(id, endtime) {
+		let setClock = (id, endtime) => {
 			let timer = document.getElementById(id),
 				hours = timer.querySelector('.hours'),
 				minutes = timer.querySelector('.minutes'),
@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					clearInterval(timeInterval);
 				}
 			}
-		}
+		};
 		setClock('timer', deadline);
 
 	//Modal
