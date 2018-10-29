@@ -164,7 +164,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	e.preventDefault();
 	});
 	
-
    	console.log(message.success);
 
 	form.addEventListener('submit', function(event) {
@@ -228,13 +227,9 @@ let formTel = document.getElementById('form'),
 		e.preventDefault();
 	});
 	
-
 	formTel.addEventListener('submit', function(event) {
 		event.preventDefault();
 		formTel.appendChild(statusMessage);
-
-		
-
 
 		let formDataTel = new FormData(formTel);
 
