@@ -42,10 +42,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			let timezone = new Date();
 				timezone = timezone.getTimezoneOffset()*60*1000;
 			let	t = Date.parse(endtime) - Date.parse(new Date()) + timezone;
-			console.log(t);
-			console.log(timezone);
-			console.log(Date.parse(endtime));
-			console.log(Date.parse(new Date()));
 				if ( t <= 0 ) {
 					return {
 						'total': 0,
@@ -101,7 +97,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		document.body.style.overflow = 'hidden';
 	});
 
-	close.addEventListener('click', () => {
+	close.addEventListener('click', function() {
 		overlay.style.display = 'none';
 		more.classList.add('remove-splash');
 		document.body.style.overflow = '';
@@ -110,7 +106,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	let inf = document.getElementsByClassName('info')[0];
 
-	inf.addEventListener('click', (event) => {
+	inf.addEventListener('click', function(event) {
 			let target = event.target;
 			if ( target.className == 'description-btn' ) {
 				
@@ -147,24 +143,20 @@ window.addEventListener('DOMContentLoaded', () => {
 	message.success = document.createElement('div');
 	message.success.appendChild(imgSuccess);
 
-	console.log(message);
-
 	let form = document.getElementsByClassName('main-form')[0],
 		input = form.getElementsByTagName('input'),
 		statusMessage = document.createElement('div'),
 		inp = form.querySelector('.popup-form__input');
 
-	inp.addEventListener('focus', _ => {
+	inp.addEventListener('focus', () => {
 	if(!/^\+\d*$/.test(inp.value))
 	inp.value = '+';
 	});
 		
-	inp.addEventListener('keypress', e => {
-	if(!/\d/.test(e.key))
-	e.preventDefault();
+	inp.addEventListener('keypress', event => {
+	if(!/\d/.test(event.key))
+	event.preventDefault();
 	});
-	
-   	console.log(message.success);
 
 	form.addEventListener('submit', function(event) {
 		event.preventDefault();
@@ -183,12 +175,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 				request.onreadystatechange = function() {
 					if ( request.readyState < 4 ) {
-						resolve()
+						resolve();
 					} else if ( request.readyState === 4 ) {
 						if ( request.status === 200 && request.status < 300 ) {
-							resolve()
+							resolve();
 						} else {
-							reject()
+							reject();
 						}
 					}
 				};
@@ -210,21 +202,21 @@ window.addEventListener('DOMContentLoaded', () => {
 				form.appendChild(message.success);
 			})
 			.catch(()=> form.appendChild(message.failure))
-			.then(clearInput)	
+			.then(clearInput);
 	});
 
 let formTel = document.getElementById('form'),
 	inputTel = formTel.getElementsByTagName('input'),
 	inpTel = formTel.getElementsByTagName('input')[1];
 
-	inpTel.addEventListener('focus', _ => {
+	inpTel.addEventListener('focus', () => {
 		if(!/^\+\d*$/.test(inpTel.value))
 		inpTel.value = '+';
 	});
 			
-	inpTel.addEventListener('keypress', e => {
-		if(!/\d/.test(e.key))
-		e.preventDefault();
+	inpTel.addEventListener('keypress', event => {
+		if(!/\d/.test(event.key))
+		event.preventDefault();
 	});
 	
 	formTel.addEventListener('submit', function(event) {
@@ -244,12 +236,12 @@ let formTel = document.getElementById('form'),
 
 				request.onreadystatechange = function() {
 					if ( request.readyState < 4 ) {
-						resolve()
+						resolve();
 					}else if ( request.readyState === 4 ) {
 						if ( request.status === 200 && request.status < 300 ) {
-							resolve()
+							resolve();
 						} else {
-							reject()
+							reject();
 						}
 					}
 				};
@@ -272,6 +264,6 @@ let formTel = document.getElementById('form'),
 				formTel.appendChild(message.success);
 			})
 			.catch(()=> formTel.appendChild(message.failure))
-			.then(clearInput)
+			.then(clearInput);
 	});
 });
