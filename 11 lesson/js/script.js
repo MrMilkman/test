@@ -97,7 +97,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		document.body.style.overflow = 'hidden';
 	});
 
-	close.addEventListener('click', () => {
+	close.addEventListener('click', function() {
 		overlay.style.display = 'none';
 		more.classList.add('remove-splash');
 		document.body.style.overflow = '';
@@ -191,7 +191,7 @@ let formTel = document.getElementById('form'),
 	inputTel = formTel.getElementsByTagName('input'),
 	inpTel = formTel.getElementsByTagName('input')[1];
 
-	inpTel.addEventListener('focus', _ => {
+	inpTel.addEventListener('focus', () => {
 		if(!/^\+\d*$/.test(inpTel.value))
 		inpTel.value = '+';
 	});
