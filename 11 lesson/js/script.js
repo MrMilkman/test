@@ -42,10 +42,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			let timezone = new Date();
 				timezone = timezone.getTimezoneOffset()*60*1000;
 			let	t = Date.parse(endtime) - Date.parse(new Date()) + timezone;
-			console.log(t);
-			console.log(timezone);
-			console.log(Date.parse(endtime));
-			console.log(Date.parse(new Date()));
 				if ( t <= 0 ) {
 					return {
 						'total': 0,
@@ -147,14 +143,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	message.success = document.createElement('div');
 	message.success.appendChild(imgSuccess);
 
-	console.log(message);
-
 	let form = document.getElementsByClassName('main-form')[0],
 		input = form.getElementsByTagName('input'),
 		statusMessage = document.createElement('div'),
 		inp = form.querySelector('.popup-form__input');
 
-	inp.addEventListener('focus', _ => {
+	inp.addEventListener('focus', () => {
 	if(!/^\+\d*$/.test(inp.value))
 	inp.value = '+';
 	});
@@ -163,9 +157,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	if(!/\d/.test(e.key))
 	e.preventDefault();
 	});
-	
-
-   	console.log(message.success);
 
 	form.addEventListener('submit', function(event) {
 		event.preventDefault();
