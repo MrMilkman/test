@@ -106,7 +106,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	let inf = document.getElementsByClassName('info')[0];
 
-	inf.addEventListener('click', (event) => {
+	inf.addEventListener('click', function(event) {
 			let target = event.target;
 			if ( target.className == 'description-btn' ) {
 				
@@ -153,9 +153,9 @@ window.addEventListener('DOMContentLoaded', () => {
 	inp.value = '+';
 	});
 		
-	inp.addEventListener('keypress', e => {
-	if(!/\d/.test(e.key))
-	e.preventDefault();
+	inp.addEventListener('keypress', event => {
+	if(!/\d/.test(event.key))
+	event.preventDefault();
 	});
 
 	form.addEventListener('submit', function(event) {
@@ -196,9 +196,9 @@ let formTel = document.getElementById('form'),
 		inpTel.value = '+';
 	});
 			
-	inpTel.addEventListener('keypress', e => {
-		if(!/\d/.test(e.key))
-		e.preventDefault();
+	inpTel.addEventListener('keypress', event => {
+		if(!/\d/.test(event.key))
+		event.preventDefault();
 	});
 	
 
